@@ -1,9 +1,11 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { View,TouchableWithoutFeedback,Text,
-    TextInput,Button,StyleSheet,Image,Linking } from 'react-native';
+    TextInput,StyleSheet,Image,Linking,Alert } from 'react-native';
 
 
 const Login = ()=>{
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
     return(
         <View style={styles.container}>
             <View style={styles.textLogoStyle}>
@@ -25,15 +27,20 @@ const Login = ()=>{
                 <TextInput
                     style={styles.inputEmail}
                     placeholder="Enter User Name"
+                    onChangeText={newText => setUserName(newText)}
+                    Value={userName}                
                 />
                 <TextInput
                     style={styles.inputPassword}
                     placeholder="Password"
+                    secureTextEntry={true}
+                    onChangeText={newText => setPassword(newText)}
+                    Value={password}
                 />
             </View>
 
             <View style={styles.buttonsStyles}>
-                <TouchableWithoutFeedback onPress={() => alert('Log In Button pressed')}>
+                <TouchableWithoutFeedback onPress={() => alert(`User Name:${userName}\nPassword:${password}`)}>
                     <View style={styles.buttonUsername}>
                         <Text style={styles.btnText}>Log IN</Text>
                     </View>
