@@ -3,9 +3,14 @@ import { View,TouchableWithoutFeedback,Text,
     TextInput,StyleSheet,Image,Linking,Alert } from 'react-native';
 
 
-const Login = ()=>{
+const Login = ({navigation})=>{
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const logInButton = ()=>{
+        if (userName ==="Aakib" && password ==="test"){
+            navigation.push("Home");
+        }
+    }
     return(
         <View style={styles.container}>
             <View style={styles.textLogoStyle}>
@@ -20,7 +25,6 @@ const Login = ()=>{
                         COMSATS UNIVERSITY LAHORE, ISLAMABAD
                     </Text>
                 </View>
-               
             </View>
 
             <View style={styles.inputFeilds}>
@@ -40,12 +44,12 @@ const Login = ()=>{
             </View>
 
             <View style={styles.buttonsStyles}>
-                <TouchableWithoutFeedback onPress={() => alert(`User Name:${userName}\nPassword:${password}`)}>
+                <TouchableWithoutFeedback onPress={logInButton}>
                     <View style={styles.buttonUsername}>
                         <Text style={styles.btnText}>Log IN</Text>
                     </View>
                 </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback onPress={() => alert('Log In Button pressed')}>
+                <TouchableWithoutFeedback onPress={() => navigation.push('Register')}>
                     <View style={styles.buttonPassword}>
                         <Text style={styles.btnText}>Sign Up</Text>
                     </View>

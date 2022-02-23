@@ -12,13 +12,11 @@ export default class Signup extends React.Component {
         password:'',
         confirmPassword:'',
     }
-
-    
   }
 
-  UNSAFE_componentWillMount(){
+//   UNSAFE_componentWillMount(){
       
-  }
+//   }
 
   render(){
       const register = ()=>{
